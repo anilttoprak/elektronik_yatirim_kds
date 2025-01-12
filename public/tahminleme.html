@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Tahminleme Sayfası</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="grid-container">
+    <header class="header">
+      <div class="menu-icon" onclick="openSidebar()">
+        <span class="material-icons-outlined">menu</span>
+      </div>
+      <div class="header-left">
+      </div>
+      <div class="header-right">
+        <span id="welcome-message"></span>
+        <a href="/logout">
+          <span class="material-icons-outlined" style="color: #DBD3D3;">logout</span>
+        </a>
+      </div>
+    </header>
+ 
+    <aside id="sidebar">
+      <div class="sidebar-title">
+        <div class="sidebar-brand">
+          <span class="material-icons-outlined">data_thresholding</span>Elektronik Yatırım
+        </div>
+        <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+      </div>
+
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <a href="index.html">
+            <span class="material-icons-outlined">home</span> Anasayfa
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="tahminleme.html">
+            <span class="material-icons-outlined">trending_up</span> Tahminleme
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main-container">
+      <div class="main-title">
+        <p class="font-weight-bold" style="font-size: 18px;">Tahminleme </p>
+      </div>
+      <div class="main-cards">
+
+        <div class="card">
+          <div class="card-inner" id="en-karli-urun">
+            <p class="text-primary">Gelecek Yıl Tahmini En Kârlı Ürün</p>
+            <p id="en-karli-urun-veri-2025" class="text-primary">Veri Yükleniyor...</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner" id="en-karsiz-urun">
+            <p class="text-primary">Gelecek Yıl Tahmini En Kârsız Ürün</p>
+            <p id="en-karsiz-urun-veri-2025" class="text-primary">Veri Yükleniyor...</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner" id="en-cok-satilan-urun">
+            <p class="text-primary">Gelecek Yıl Tahmini En Çok Satılacak Ürün</p>
+            <p id="en-cok-satilan-urun-veri-2025" class="text-primary">Veri Yükleniyor...</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner" id="toplam-kar">
+            <p class="text-primary">Gelecek Yıl Tahmini Gelir, Gider ve Kâr</p>
+            <p id="toplam-gelir-2025" class="text-primary"></p>
+            <p id="toplam-gider-2025" class="text-primary"></p>
+            <p id="toplam-kar-veri-2025" class="text-primary"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts">
+
+        <div class="charts-card">
+          <p class="chart-title">Tahmini Ürün Satış Miktarları</p>
+          <canvas id="tahminimiktarGrafik" canvas>
+        </div>
+
+        <div class="charts-card">
+          <p class="chart-title">Ürün Bazlı Kar Tahmini</p>
+          <canvas id="urunBazliGrafik"></canvas>
+        </div>
+      
+      </div>
+    </main>
+  
+  </div>
+</body>

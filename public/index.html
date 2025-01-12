@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Anasayfa</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+ 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="grid-container">
+    <header class="header">
+      <div class="menu-icon" onclick="openSidebar()">
+        <span class="material-icons-outlined">menu</span>
+      </div>
+      <div class="header-left">
+      </div>
+      <div class="header-right">
+        <span id="welcome-message"></span>
+        <a href="/logout">
+          <span class="material-icons-outlined" style="color: #DBD3D3;">logout</span>
+        </a>
+      </div>
+    </header>
+  
+    <aside id="sidebar">
+      <div class="sidebar-title">
+        <div class="sidebar-brand">
+          <span class="material-icons-outlined">data_thresholding</span>Elektronik Yatırım
+        </div>
+        <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+      </div>
+
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <a href="index.html">
+            <span class="material-icons-outlined">home</span> Anasayfa
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="tahminleme.html">
+            <span class="material-icons-outlined">trending_up</span> Tahminleme
+          </a>
+        </li>
+      </ul>
+    </aside>
+ 
+    <main class="main-container">
+      <div class="main-title">
+        <p class="font-weight-bold" style="font-size: 18px;">Anasayfa</p>
+      </div>
+      <div class="main-cards">
+        <div class="card">
+          <div class="card-inner" id="en-karli-urun">
+            <p class="text-primary">Son Yılın En Kârlı Ürünü</p>
+            <p id="en-karli-urun-veri" class="text-primary">Veri Yükleniyor...</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner" id="en-karsiz-urun">
+            <p class="text-primary">Son Yılın En Kârsız Ürünü</p>
+            <p id="en-karsiz-urun-veri" class="text-primary">Veri Yükleniyor...</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner" id="en-cok-satilan-urun">
+            <p class="text-primary">Son Yılın En Çok Satılan Ürünü</p>
+            <p id="en-cok-satilan-urun-veri" class="text-primary">Veri Yükleniyor...</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner" id="toplam-kar">
+            <p class="text-primary">Son Yılın Gelir, Gider ve Kârı</p>
+            <p id="toplam-gelir" class="text-primary"></p>
+            <p id="toplam-gider" class="text-primary"></p>
+            <p id="toplam-kar-veri" class="text-primary"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts">
+        <div class="charts-card">
+          <p class="chart-title">Gelir-Gider-Kâr</p>
+          <label for="yilSecim" style="color: #024CAA;">Yıl seçiniz:</label>
+          <select id="yilSecim">
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023" selected>2023</option>
+          </select>
+          <canvas id="finansalGrafik"></canvas>
+        </div>
+
+        <div class="charts-card">
+          <p class="chart-title">Ürün Bazlı Gelir-Gider</p>
+          <label for="yilSecim2" style="color: #024CAA;">Yıl seçiniz:</label>
+          <select id="yilSecim2">
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023" selected>2023</option>
+          </select>
+          <canvas id="urunlerGrafik" canvas>
+        </div>
+
+        <div class="charts-card">
+          <p class="chart-title">Ürün Satış Miktarları</p>
+          <label for="yilSecim3" style="color: #024CAA;">Yıl seçiniz:</label>
+          <select id="yilSecim3">
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023" selected>2023</option>
+          </select>
+          <canvas id="satismiktarGrafik" canvas>
+        </div>
+
+        <div class="charts-card">
+          <p class="chart-title">Kategorilere Göre Kâr Yüzdeleri</p>
+          <label for="yilSecim4" style="color: #024CAA;">Yıl seçiniz:</label>
+          <select id="yilSecim4">
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023" selected>2023</option>
+          </select>
+          <canvas id="kategoriKarGrafik" canvas>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
